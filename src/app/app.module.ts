@@ -1,16 +1,63 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent, PrintDialogComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
+  MatListModule,
+  MatSelectModule,
+  MatSnackBarModule,
+  MatTabsModule,
+  MatToolbarModule
+} from '@angular/material';
+import {AppService} from './app.service';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {NgxPrintModule} from 'ngx-print';
+
+const materialModules = [
+  MatTabsModule,
+  MatGridListModule,
+  MatIconModule,
+  MatListModule,
+  MatToolbarModule,
+  MatSnackBarModule,
+  MatCardModule,
+  MatButtonModule,
+  MatFormFieldModule,
+  MatDialogModule,
+  MatInputModule,
+  MatSelectModule,
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PrintDialogComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxPrintModule,
+    ...materialModules,
   ],
-  providers: [],
+  entryComponents: [
+    PrintDialogComponent,
+  ],
+  providers: [
+    AppService,
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.user_name}}님의 신청내역입니다.</h1>
+<div mat-dialog-content id="print-section">
+  <img [src]="qrImgUrl" style="width: 100%">
+</div>
+<div mat-dialog-actions>
+  <button mat-button printSectionId="print-section" ngxPrint>인쇄</button>
+  <button mat-button (click)="onNoClick()">닫기</button>
+</div>
